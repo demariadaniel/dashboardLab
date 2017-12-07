@@ -1,0 +1,107 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-intro 7s ease-out, App-logo-spin 7s linear;
+  animation-iteration-count: 1, infinite;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 100px;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-intro {
+  0% {  transform: rotate(360deg);
+        height: 200%; }
+  50% { transform: rotate(0deg);}
+  100% {transform: rotate(360deg);
+        height: 80%; }
+}
+
+@keyframes App-logo-spin {
+  0% {  transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.chartBox {
+  height: 60%;
+  position: relative;
+  border-left: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.chartHeader {
+  margin: 5px 0 5px 0;
+}
+
+input {
+  display: block;
+  margin: 5px auto;
+}
+
+.label {
+  display: block;
+  position: absolute;
+  bottom: 100%;
+  margin: 0 3px 3px;
+  font-size: 0.75rem;
+}
+
+.menu {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  width: 25%;
+  height: 45vh;
+  margin: 2% 2%;
+  overflow: auto;
+  padding: 1%;
+  vertical-align: top;
+}
+
+nav {
+  margin: 15px;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+}
+
+.valA, .valB, .valC {
+  width: 30%;
+  border: 1px solid lightgrey;
+  display: inline-block;
+  vertical-align: bottom;
+  position: absolute;
+  bottom: 0;
+}
+
+.valA {
+  background-color: lightskyblue;
+  left: 0%;
+}
+
+.valB {
+  background-color: dodgerblue;
+  left: 35%;
+}
+
+.valC {
+  background-color: blue;
+  left: 69%;
+}
