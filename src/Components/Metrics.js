@@ -14,9 +14,9 @@ class Metrics extends Component {
             totalNum: ""
         }
     }
-    componentDidMount(){
+    componentWillReceiveProps(nextProps){
         this.setState({
-            ...calculator(this.props)
+            ...calculator(nextProps)
         })
     }
     render() {

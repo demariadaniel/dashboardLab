@@ -16,3 +16,59 @@ app.listen(process.env.PORT || 8080, () => {
 	console.log(`Server Started on Port ${process.env.PORT || 8080}`);
 	console.log('Press CTRL + C to stop server');
 });
+
+const knex = require('knex')({
+    client: 'postgres',
+    connection: {
+      host     : '127.0.0.1',
+      user     : 'postgres',
+      password : 'postgres',
+      database : 'dbApp',
+      charset  : 'utf8'
+    }
+  });
+
+  const bookshelf = require('bookshelf')(knex);
+  
+  const Student = bookshelf.Model.extend({
+    tableName: 'student',
+})
+
+app.get('/students', (req,res)=>{
+    Student
+	.fetchAll()
+	.then(students => {
+        console.log(students)
+        res.send(students)
+	})
+})
+
+app.post('/students', (req,res)=>{
+    let newStudent = new Student(req.body)
+    console.log(newStudent)
+
+    // Student
+	// .save()
+	// .then(student => {
+    //     console.log(student)
+        res.send(student)
+	// })
+})
+
+app.put('/students', (req,res)=>{
+    Student
+	.fetchAll()
+	.then(students => {
+        console.log(students)
+        res.send(students)
+	})
+})
+
+app.del('/students', (req,res)=>{
+    Student
+	.fetchAll()
+	.then(students => {
+        console.log(students)
+        res.send(students)
+	})
+})
