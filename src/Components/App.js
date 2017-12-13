@@ -4,9 +4,24 @@ import './../Style/App.css';
 import {Route, Link, Switch} from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Admin from './Admin';
-import users from './../Util/UserSeeds';
+// import users from './../Util/UserSeeds';
+import axios from 'axios';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      users: []
+    }
+  }
+  componentDidMount(){
+    axios.get('http://localhost:8080/students')
+      .then(res=>{
+        this.setState({
+          users: res.data
+        })
+      })
+  }
   render() {
     return (
       <div className="App">
@@ -19,10 +34,10 @@ class App extends Component {
         </nav>
         <Switch>
           <Route path="/" exact render={(props)=>
-              <Dashboard {...props} users={users}/>} 
+              <Dashboard {...props} users={this.state.users}/>} 
             />
           <Route path="/admin" render={(props)=>
-              <Admin {...props} users={users}/>}
+              <Admin {...props} users={this.state.users}/>}
             />
         </Switch>
       </div>
