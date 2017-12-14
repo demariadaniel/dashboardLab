@@ -25,7 +25,7 @@ class App extends Component {
   apiCall=(method, student)=>{
     axios({
         method: method,
-        url: 'http://localhost:8080/students',
+        url: '/students',
         data: student
     }).then(res => {
         this.setState({
