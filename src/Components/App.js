@@ -40,8 +40,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <nav>
-          <Link to="/"><button>Dashboard</button></Link>
-          <Link to="/admin"><button>Admin</button></Link>
+          <Link to="/"><button>View Dashboard</button></Link>
+          <Link to="/admin"><button>View Admin</button></Link>
         </nav>
         <Switch>
           <Route path="/" exact render={(props)=>
