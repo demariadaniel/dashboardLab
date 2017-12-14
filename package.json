@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "seed": "(cd api && knex migrate:latest && knex seed:run)",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
