@@ -22,6 +22,17 @@ class App extends Component {
         })
       })
   }
+  apiCall=(method, student)=>{
+    axios({
+        method: method,
+        url: 'http://localhost:8080/students',
+        data: student
+    }).then(res => {
+        this.setState({
+          users: res.data
+        })
+    })
+}
   render() {
     return (
       <div className="App">
@@ -37,7 +48,7 @@ class App extends Component {
               <Dashboard {...props} users={this.state.users}/>} 
             />
           <Route path="/admin" render={(props)=>
-              <Admin {...props} users={this.state.users}/>}
+              <Admin {...props} users={this.state.users} apiCall={this.apiCall}/>}
             />
         </Switch>
       </div>

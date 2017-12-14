@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
+import axios from 'axios';
 
 class Admin extends Component {
     constructor(){
@@ -18,12 +19,12 @@ class Admin extends Component {
         }
         this.setState({
             [`${studentKey}`]: editStudent
-        }, ()=>console.log(this.state))
+        })
     }
     editValue=(e, value)=>{
         this.setState({
             [`${value}`]: this.props.users[e.target.value]
-        }, ()=>console.log(this.state))
+        })
     }
     render(){
         console.log(this.props)
@@ -72,7 +73,10 @@ class Admin extends Component {
                                 <option value={3}>Referral</option>
                         </select>
                         <div>
-                            <button>Create</button>
+                            <button 
+                                onClick={()=>this.props.apiCall('post', this.state.createUser)}>
+                                    Create
+                            </button>
                         </div>
                     </div>    
                 </div>
@@ -116,7 +120,10 @@ class Admin extends Component {
                                 <option value={3}>Referral</option>
                         </select>
                         <div>
-                            <button>Update</button>
+                            <button 
+                                onClick={()=>this.props.apiCall('put', this.state.editUser)}>
+                                    Update
+                            </button>
                         </div>
                     </div>    
                 </div>
@@ -131,7 +138,10 @@ class Admin extends Component {
                             }
                         </select>
                         <div>
-                            <button>Delete</button>
+                            <button 
+                                onClick={()=>this.props.apiCall('delete', this.state.deleteUser)}>
+                                    Delete
+                            </button>
                         </div>
                     </div>    
                 </div>
