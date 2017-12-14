@@ -17,19 +17,8 @@ app.listen(process.env.PORT || 8080, () => {
 	console.log('Press CTRL + C to stop server');
 });
 
-const knex = require('knex')({
-    client: 'postgres',
-    connection: {
-      host     : '127.0.0.1',
-      user     : 'postgres',
-      password : 'postgres',
-      database : 'dbApp',
-      charset  : 'utf8'
-    }
-  });
-
+const knex = require('knex')(require('./knexfile'));
   const bookshelf = require('bookshelf')(knex);
-  
   const Student = bookshelf.Model.extend({
     tableName: 'student',
 })
@@ -46,13 +35,7 @@ app.get('/students', (req,res)=>{
 app.post('/students', (req,res)=>{
     let newStudent = new Student(req.body)
     console.log(newStudent)
-
-    // Student
-	// .save()
-	// .then(student => {
-    //     console.log(student)
-        res.send(student)
-	// })
+    res.send("TODO")
 })
 
 app.put('/students', (req,res)=>{
@@ -72,3 +55,7 @@ app.del('/students', (req,res)=>{
         res.send(students)
 	})
 })
+
+app.get('*', (req, res) => {
+    res.sendFile('index.html',{root: __dirname + './../build'});
+});
