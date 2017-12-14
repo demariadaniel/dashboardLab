@@ -2,6 +2,7 @@
   "name": "dbapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080/",
   "dependencies": {
     "axios": "^0.17.1",
     "bookshelf": "^0.12.0",
