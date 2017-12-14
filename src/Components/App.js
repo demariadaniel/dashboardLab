@@ -15,7 +15,7 @@ class App extends Component {
     }
   }
   componentDidMount(){
-    axios.get('http://localhost:8080/students')
+    axios.get('/students')
       .then(res=>{
         this.setState({
           users: res.data
