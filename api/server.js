@@ -17,16 +17,7 @@ app.listen(process.env.PORT || 8080, () => {
 	console.log('Press CTRL + C to stop server');
 });
 
-const knex = require('knex')({
-    client: 'postgres',
-    connection: {
-      host     : '127.0.0.1',
-      user     : 'postgres',
-      password : 'postgres',
-      database : 'dbApp',
-      charset  : 'utf8'
-    }
-  });
+const knex = require('knex')(require('./knexfile'));
 
   const bookshelf = require('bookshelf')(knex);
   
