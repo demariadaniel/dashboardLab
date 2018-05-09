@@ -17,6 +17,7 @@ class App extends Component {
   componentDidMount(){
     axios.get('/students')
       .then(res=>{
+        console.log(res.data)
         this.setState({
           users: res.data
         })
